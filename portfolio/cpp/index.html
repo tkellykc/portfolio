@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Chapter11Program4.cpp</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  
+  <!-- Bootstrap core CSS -->
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/resume.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Tim Kelly</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#screenshots">Screenshots</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="p-3 p-lg-5 d-flex justify-content-center" id="about">
+    <div class="resume-content">
+      <h1>C++</h1>
+      <h3 class="mb-0">Chapter11Program4.cpp</h3>
+      <div class="subheading mb-3">Timothy Kelly & Bryan Carranza - CSIS 223</div>
+      <p>This program simulates a cylinder container painting and shipping service. The program prompts the user to
+        input
+        the dimensions of a cylinder and the shipping price per liter of volume. The program then outputs the total
+        shipping price for the cylinder. The program asks the user if they wish to have the container painted. If so,
+        the
+        program outputs the painting price and the final total of service. If painting is not requested, the program
+        outputs the final total without painting.</p>
+    </div>
+  </section>
+
+  <section class="p-3 p-lg-5 d-flex justify-content-center" id="screenshots">
+    <div class="resume-content">
+      <h3 class="mb-0">Screenshots</h3>
+      <img class="screenshot" src="cpp_screenshot1.png" />
+      <img class="screenshot" src="cpp_screenshot2.png" />
+      <img class="screenshot" src="cpp_screenshot3.png" />
+      <img class="screenshot" src="cpp_screenshot4.png" />
+      <img class="screenshot" src="cpp_screenshot5.png" />
+      <img class="screenshot" src="cpp_screenshot6.png" />
+    </div>
+  </section>
+
+  <section class="p-3 p-lg-5" id="code">
+    <h3 class="mb-0">Code</h3>
+
+    <pre><code class="prettyprint lang-cpp">
+// Chapter11Program4.cpp
+// Timothy Kelly &amp; Bryan Carranza - CSIS 223
+// This program simulates a cylinder container painting and shipping service. 
+// The program prompts the user to input the dimensions of a cylinder and the shipping 
+// price per liter of volume. The program then outputs the total shipping price for the 
+// cylinder. The program asks the user if they wish to have the container painted. If so, 
+// the program outputs the painting price and the final total of service. If painting 
+// is not requested, the program outputs the final total without painting.
+
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+class cylinderType // declares cylinderType class
+{
+  public: // initializes public variables for class
+    void radiusVal(double rad);
+    double getRadius();
+    void heightVal(double ht);
+    double getHeight();
+    double volume();
+    double surfaceArea();
+    cylinderType(double rad, double ht);
+    cylinderType();
+
+  private: // initializes private variables for class
+    double radius;
+    double height;
+};
+
+void cylinderType::radiusVal(double rad) // this function receives and stores the dimension of the cylinder base radius
+{
+    if (rad &gt;= 0)
+        radius = rad;
+    else
+        radius = 0;
+}
+
+double cylinderType::getRadius() // returns radius value
+{
+    return radius;
+}
+
+void cylinderType::heightVal(double ht) // this function receives and stores the dimension of the cylinder height
+{
+    if (ht &gt;= 0)
+        height = ht;
+    else
+        height = 0;
+}
+
+double cylinderType::getHeight() // returns height value
+{
+    return height;
+}
+
+double cylinderType::volume() // this function calculates the cylinder volume
+{
+    return 3.14 * (radius * radius) * height;
+}
+
+double cylinderType::surfaceArea() // this function calculates the cylinder surface area
+{
+    return (2 * 3.14 * radius * height) + (2 * 3.14 * (radius * radius));
+}
+
+cylinderType::cylinderType(double rad, double ht) // class variables
+{
+    radiusVal(rad);
+    heightVal(ht);
+}
+
+cylinderType::cylinderType() // class variables
+{
+    radius = 0;
+    height = 0;
+}
+
+int main() // program main function
+{
+    double radius; // cylinder radius value
+    double height; // cylinder height value
+    double shipPrice; // shipping price amount entered by user
+    double shipTotal; // total shipping cost for cylinder
+    double paintPrice; // paint price amount entered by user
+    double paintTotal; // total pain price for cylinder
+    double finalTotal; // final total amount (shipping cost + paint cost)
+    char paintRequest; // 'yes' or 'no' for painting input by user
+
+    cylinderType operation;
+
+    cout &lt;&lt; "--Welcome to the A &amp; T Container Service Calculator--" &lt;&lt; endl &lt;&lt; endl; // welcome message
+    cout &lt;&lt; "Please enter the dimensions of the container (radius and height). " &lt;&lt; endl; // explanation for input
+    cout &lt;&lt; "Radius (in feet): "; // prompts the user to enter radius value
+    cin &gt;&gt; radius;
+    cout &lt;&lt; endl;
+    cout &lt;&lt; "Height (in feet): "; // prompts the user to enter height value
+    cin &gt;&gt; height;
+    cout &lt;&lt; endl;
+
+    operation.radiusVal(radius);
+    operation.heightVal(height);
+
+    cout &lt;&lt; "Please enter the shipping price (per liter): "; // prompts user to enter shipping price
+    cin &gt;&gt; shipPrice;
+    cout &lt;&lt; endl;
+    shipTotal = shipPrice * operation.volume() * 28.32; // calculates shipping price according to volume
+    cout &lt;&lt; setprecision(2) &lt;&lt; fixed &lt;&lt; "Based on the information you provided, the total shipping cost is $" &lt;&lt; shipTotal &lt;&lt; endl &lt;&lt; endl; // outputs shipping price
+
+    while (paintRequest != 'Y' &amp;&amp; paintRequest != 'N') // while loop for for painting answer
+    {
+        cout &lt;&lt; "Would you like your cylinder to be painted? Y/N" &lt;&lt; endl; // prompts user to enter 'yes' or 'no' for painting
+        cin &gt;&gt; paintRequest;
+        cout &lt;&lt; endl;
+
+        if (paintRequest == 'Y' || paintRequest == 'y') // result for 'yes' answer
+        {
+            cout &lt;&lt; "Please enter the paint cost (per square foot): "; // prompts user to input paint cost
+            cin &gt;&gt; paintPrice;
+            cout &lt;&lt; endl;
+
+            paintTotal = paintPrice * operation.surfaceArea(); // calculates paint price according to surface area
+            finalTotal = (shipTotal) + (paintTotal); // calculates final total (shipping + paint)
+
+            cout &lt;&lt; setprecision(2) &lt;&lt; fixed &lt;&lt; "The paint price is $" &lt;&lt; paintTotal &lt;&lt; endl; // outputs total paint price
+            cout &lt;&lt; setprecision(2) &lt;&lt; fixed &lt;&lt; "Your final total for paint and shipping is $" &lt;&lt; finalTotal &lt;&lt; endl &lt;&lt; endl; // outputs final total
+            cout &lt;&lt; "--Thank you for choosing A &amp; T Container Service--" &lt;&lt; endl; // thank-you message
+        }
+        else if (paintRequest == 'N' || paintRequest == 'n') // result of 'no' answer
+        {
+            finalTotal = shipTotal; // initializes final total to reflect only shipping price (no painting)
+            cout &lt;&lt; setprecision(2) &lt;&lt; fixed &lt;&lt; "Your final total is $" &lt;&lt; finalTotal &lt;&lt; endl &lt;&lt; endl; // outputs final total
+            cout &lt;&lt; "--Thank you for choosing A &amp; T Container Service--" &lt;&lt; endl; // thank-you message
+        }
+
+        break;
+    }
+
+    return 0;
+}        
+    </code></pre>
+  </section>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../../js/resume.min.js"></script>
+
+</body>
+
+</html>
