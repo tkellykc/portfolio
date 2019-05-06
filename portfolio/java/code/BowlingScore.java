@@ -1,6 +1,5 @@
 // Timothy Kelly
-// CSIS 222
-// Program Project #2 - Bowling Score
+// 
 // This program keeps score for a bowling game. The program prompts the user to input the value for each roll of each frame, storing the values into corresponding arrays. After all of the rolls are made, the program outputs the final scores as a score card.
 
 import java.util.ArrayList; // imports ArrayList utility
