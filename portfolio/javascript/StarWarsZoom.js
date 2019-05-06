@@ -1,7 +1,7 @@
 /*
     Timothy Kelly
-    CSIS 228 - Yoast
-    Chapter 5 Assignment
+    
+    Star Wars Poster Gallery
 */
 
 "use strict"; // interpret document contents in JavaScript strict mode
