@@ -61,11 +61,11 @@ if (isset($_POST['submit'])) {
           }
      }
      // link to reload the quiz
-	 echo "<p><a href='TimothyKellyChapter6Project.php'>
+	 echo "<p><a href='NFLTeamNameTrivia.php'>
           Try again?</a></p>\n";
 }
 else {
-     echo "<form action='TimothyKellyChapter6Project.php'
+     echo "<form action='NFLTeamNameTrivia.php'
           method='POST'>\n";
 	 // 'foreach' statement to take in user input
      foreach ($TeamNames as
