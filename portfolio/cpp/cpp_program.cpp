@@ -1,5 +1,4 @@
-// Chapter11Program4.cpp
-// Timothy Kelly & Bryan Carranza - CSIS 223
+// Timothy Kelly
 // This program simulates a cylinder container painting and shipping service. The program prompts the user to input the dimensions of a cylinder and the shipping price per liter of volume. The program then outputs the total shipping price for the cylinder. The program asks the user if they wish to have the container painted. If so, the program outputs the painting price and the final total of service. If painting is not requested, the program outputs the final total without painting.
 
 #include <iostream>
